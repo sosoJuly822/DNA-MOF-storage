@@ -10,7 +10,7 @@ This repository hosts ongoing research code and resources for high-density DNA-b
 ## Project Overview
 The project aims to:
 - Analyze and process nanopore sequencing data for DNA storage experiments
-- Develop image compression and DNA-based encoding/decoding algorithms
+- Develop DNA-based image encoding/decoding algorithms
 - Integrate DNA sequences with MOF structures for high-density storage
 
 ## Planned Updates
@@ -20,7 +20,3 @@ The project aims to:
 
 ## Notes
 This repository is **under active development**. Code, datasets, and documentation will be updated as the project progresses.
-
-## Maintainer
-Yang Liu (sosoJuly822)  
-Email: 535473541@qq.com
