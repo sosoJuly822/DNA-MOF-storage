@@ -2,12 +2,16 @@
 
 This repository hosts research code and example processed results for a DNA storage study based on Metal-Organic Frameworks (MOFs).
 
+The corresponding raw Illumina sequencing datasets are publicly available on  **Zenodo** :
+
+[**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
+
 ## Project Overview
 
 This project focuses on high-density DNA-based data storage using MOF-assisted preservation and sequencing-based data recovery. The repository provides data processing scripts for two major parts of the study:
 
-- **Decoding workflow (clustering-based sequence generation)**: generating representative sequences for decoding from sequencing reads under the assumption that primer sequences, indices, and sequence segment lengths are known. The full decoding algorithm for reconstructing the original stored information is described in a separate study ([http://arxiv.org/abs/2601.16518](http://arxiv.org/abs/2601.16518)) and is not included in this repository.
-- **Error rate analysis workflow**: evaluating sequencing and decoding fidelity by calculating substitutions, insertions, and deletions.
+- **Clustering and consensus workflow** : grouping sequencing reads according to known primer sequences, indices, and sequence segment lengths, followed by generation of representative consensus sequences for downstream analysis. The full decoding algorithm for reconstructing the original stored information is described in a separate study ([http://arxiv.org/abs/2601.16518](http://arxiv.org/abs/2601.16518)) and is not included in this repository.
+- **Reference-based error rate analysis workflow** : matching sequencing reads to the known designed sequence library and quantifying sequencing errors, including substitutions, insertions, and deletions.
 
 The repository also includes `refLib-SEQ2210.xlsx`, which contains the encoded DNA sequence library used in this study and serves as the reference sequence library for downstream sequencing data analysis.
 
@@ -20,16 +24,16 @@ DNA-MOF-storage/
 ├── README.md
 ├── refLib-SEQ2210.xlsx            # Encoded DNA sequence library used in this study
 ├── scripts/
-│   ├── decoding/                  # Scripts for clustering-based sequence preparation
+│   ├── clustering_consensus/                  # Scripts for clustering-based sequence preparation
 │   │   ├── *.py                   # Preprocessing, index assignment, clustering, etc.
 │   │   ├── *.ipynb                # Visualization and exploratory notebooks
 │   │   └── *.sh                   # Batch processing / pipeline scripts
-│   └── error_rate_analysis/       # Scripts for calculating sequencing and decoding errors
+│   └── error_rate_analysis/       # Scripts for reference-based sequencing error analysis
 │       ├── *.py
 │       ├── *.ipynb
 │       └── *.sh
 ├── results/
-│   ├── decoding/                  # Example processed sequences from clustering
+│   ├── clustering_consensus/                  # Example processed sequences from clustering
 │   └── error_rate_analysis/       # Example processed error rate analysis results
 ├── examples/                      # Small input/output examples for testing
 └── docs/                          # Documentation of workflows (optional)
@@ -39,42 +43,51 @@ DNA-MOF-storage/
 
 The file `refLib-SEQ2210.xlsx`, located in the repository root at the same level as the `scripts/` and `results/` directories, contains the encoded DNA sequence library used in this study. These sequences represent the designed sequence library after encoding and are used as reference sequences in downstream sequencing data processing and error rate analysis.
 
-## Decoding Workflow (Clustering-based Sequence Preparation)
+## Clustering and Consensus Workflow
 
-The decoding scripts located in `scripts/decoding/` are used to generate sequences suitable for downstream decoding. This workflow assumes:
+The scripts located in `scripts/clustering_consensus/` are used to classify sequencing reads and generate consensus sequences for downstream decoding. This workflow assumes:
 
-- Known primer sequences
-- Known index sequences
-- Known length of each sequence segment
+* Known primer sequences
+* Known index sequences
+* Known length of each sequence segment
 
-The clustering step organizes reads according to these constraints to produce representative sequences. **Full decoding of the stored digital information is not included in this repository.**
+Reads are first assigned according to the known primer and index information. Within each assigned group, consensus sequences are generated from the sequencing reads without using the designed payload sequence as a reference.
 
-Example processed results are provided in `results/decoding/`.
+The designed reference library may subsequently be used to evaluate the accuracy and recovery performance of the generated consensus sequences, but it is not used to construct the consensus payload sequence itself.
 
-## Error Rate Analysis Workflow
+**The full decoding algorithm used to reconstruct the original stored digital information is not included in this repository.**
 
-The error rate analysis scripts are located in `scripts/error_rate_analysis/`. This workflow evaluates sequencing and decoding accuracy:
+Example processed results are provided in `results/clustering_consensus/`.
 
-- Matching sequencing reads or clustered sequences to reference sequences
-- Identifying covered and uncovered sequences
-- Counting substitutions, insertions, and deletions
-- Calculating per-read, per-item, and overall error rates
-- Summarizing error distributions
+## Reference-based Error Rate Analysis
 
-The encoded sequence library provided in `refLib-SEQ2210.xlsx` is used as the reference library for sequence matching and error rate evaluation.
+The scripts located in `scripts/error_rate_analysis/` are used to characterize sequencing errors by direct comparison with the known designed sequence library.
+
+Sequencing reads are assigned to their corresponding designed sequences using primer, index, and sequence-matching information. Each assigned read is then compared with its reference sequence to:
+
+* Identify correctly sequenced positions
+* Count substitutions, insertions, and deletions
+* Calculate per-position and overall sequencing error rates
+* Summarize error distributions across samples and sequences
+
+The encoded sequence library provided in `refLib-SEQ2210.xlsx` serves as the reference library for this analysis.
 
 Example processed results are provided in `results/error_rate_analysis/`.
 
 ## Data Availability
 
-Due to the large size of raw sequencing files and intermediate processing files, the complete raw datasets are not included. This repository currently provides the encoded sequence library, core analysis scripts, and representative processed results.
+The raw Illumina sequencing datasets associated with this study are publicly available on  **Zenodo** :
 
-Full raw datasets will be made available through an appropriate public repository after publication. Before public release, data may be available from the corresponding authors upon reasonable request.
+[**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
+
+The complete designed DNA sequence library used for downstream analysis is provided in this repository as `refLib-SEQ2210.xlsx`.
+
+The analysis scripts used for sequence processing, clustering and consensus generation, dropout counting, downsampling, and error-rate evaluation are provided in this repository together with representative processed results.
 
 ## Contact
 
-For questions about code, data processing workflow, or access to raw data, please contact the corresponding authors or open an issue in this repository.
+For questions about the code or data processing workflow, please contact the corresponding authors or open an issue in this repository.
 
 ## Status
 
-This repository is under active development. Code, example results, documentation, and data availability information will be updated during the manuscript submission and revision process.
+This repository accompanies the manuscript **“Interwoven DNA-MOF crystals for multi-millennial data storage.”** Code and documentation may be updated to improve reproducibility and usability.
