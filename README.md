@@ -32,7 +32,7 @@ DNA-MOF-storage/
 │   │   ├── *.py
 │   │   ├── *.ipynb
 │   │   └── *.sh
-|   └── downsampling/                  # Sequencing-depth downsampling
+│   └── downsampling/                  # Sequencing-depth downsampling
 ├── results/
 │   ├── clustering_consensus/                  # Example processed sequences from clustering
 │   └── error_rate_analysis/       # Example processed error rate analysis results
