@@ -28,10 +28,11 @@ DNA-MOF-storage/
 │   │   ├── *.py                   # Preprocessing, index assignment, clustering, etc.
 │   │   ├── *.ipynb                # Visualization and exploratory notebooks
 │   │   └── *.sh                   # Batch processing / pipeline scripts
-│   └── error_rate_analysis/       # Scripts for reference-based sequencing error analysis
-│       ├── *.py
-│       ├── *.ipynb
-│       └── *.sh
+│   ├── error_rate_analysis/       # Scripts for reference-based sequencing error analysis
+│   │   ├── *.py
+│   │   ├── *.ipynb
+│   │   └── *.sh
+|   └── downsampling/                  # Sequencing-depth downsampling
 ├── results/
 │   ├── clustering_consensus/                  # Example processed sequences from clustering
 │   └── error_rate_analysis/       # Example processed error rate analysis results
@@ -81,8 +82,6 @@ The raw Illumina sequencing datasets associated with this study are publicly ava
 [**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
 
 The complete designed DNA sequence library used for downstream analysis is provided in this repository as `refLib-SEQ2210.xlsx`.
-
-The analysis scripts used for sequence processing, clustering and consensus generation, dropout counting, downsampling, and error-rate evaluation are provided in this repository together with representative processed results.
 
 ## Contact
 
