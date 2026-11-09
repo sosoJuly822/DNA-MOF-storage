@@ -2,7 +2,7 @@
 
 This repository hosts research code and example processed results for a DNA storage study based on Metal-Organic Frameworks (MOFs).
 
-The corresponding raw Illumina sequencing datasets are publicly available on  **Zenodo** :
+The corresponding raw NGS sequencing datasets are publicly available on  **Zenodo** :
 
 [**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
 
@@ -77,7 +77,7 @@ Example processed results are provided in `results/error_rate_analysis/`.
 
 ## Data Availability
 
-The raw Illumina sequencing datasets associated with this study are publicly available on  **Zenodo** :
+The raw NGS sequencing datasets associated with this study are publicly available on  **Zenodo** :
 
 [**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
 
