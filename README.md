@@ -4,7 +4,7 @@ This repository hosts research code and example processed results for a DNA stor
 
 The corresponding raw NGS sequencing datasets are publicly available on  **Zenodo** :
 
-[**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
+[**https://zenodo.org/records/24063407**](https://zenodo.org/records/24063407)
 
 ## Project Overview
 
@@ -79,7 +79,7 @@ Example processed results are provided in `results/error_rate_analysis/`.
 
 The raw NGS sequencing datasets associated with this study are publicly available on  **Zenodo** :
 
-[**https://zenodo.org/records/23938446**](https://zenodo.org/records/23938446)
+[**https://zenodo.org/records/24063407**]([https://zenodo.org/records/24063407](https://zenodo.org/records/24063407))
 
 The complete designed DNA sequence library used for downstream analysis is provided in this repository as `refLib-SEQ2210.xlsx`.
 
